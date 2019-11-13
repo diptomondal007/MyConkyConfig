@@ -1,0 +1,118 @@
+conky.config = {
+	
+	update_interval = 0.8,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	out_to_console = false,
+	override_utf8_locale = true,
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 32768,
+	imlib_cache_size = 0,
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_argb_visual = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	border_inner_margin = 5,
+	border_outer_margin = 0,
+	own_window_transparent = true, 
+	xinerama_head = 1,
+	alignment = 'top_right',
+	gap_x = 10,
+	gap_y = 40,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	use_xft = true,
+	font = 'Ubuntu Mono:size=20',
+	xftalpha = 1,
+	uppercase = false,
+	default_color = '#6200ea',
+	own_window_colour = '#000',
+	minimum_width = 300, minimum_height = 0,
+	background = true,
+	border_width = 1,
+	cpu_avg_samples = 2,
+	default_outline_color = 'white',
+	default_shade_color = 'white',
+
+
+
+
+};
+conky.text = [[
+${font Ubuntu:bold:size=10}${color grey}Ubuntu 19.04
+Node Name: $nodename
+${font Arial:bold:size=10}${color red}SYSTEM ${color red} ${hr 2}
+${font Arial:bold:size=10}${color grey}$sysname $kernel $alignr ${color orange}$machine
+${font Arial:bold:size=10}${color grey}Intel CORE2 Q6600 ${color orange}$alignr${freq_g cpu0}Ghz
+${color grey}Kernel $alignr${color orange}${kernel}
+${color grey}Uptime $alignr${color orange}${uptime}
+${color grey}File System $alignr${color orange}${fs_type}
+
+${font Arial:bold:size=10}${color red}PROCESSORS ${color red}${hr 2}
+${font Arial:bold:size=10}${color grey}Average${offset 11}${color orange}${cpu cpu0}%${alignc}${cpubar cpu0}
+${color grey}Core1${offset 25}${color orange}${cpu cpu1}%${alignc}${cpubar cpu1}
+${color grey}Core2${offset 25}${color orange}${cpu cpu2}%${alignc}${cpubar cpu2}
+${color grey}Core3${offset 25}${color orange}${cpu cpu3}%${alignc}${cpubar cpu3}
+${color grey}Core4${offset 25}${color orange}${cpu cpu4}%${alignc}${cpubar cpu4}
+
+${font Arial:bold:size=10}${color red}TOP PROCESSES ${color red}${hr 2}
+${color grey}${font Arial:bold:size=10}${top_mem name 1}${alignr}${color orange}${top mem 1} %
+${font Arial:bold:size=10}${color grey}${top_mem name 2}${alignr}${color orange}${top mem 2} %
+${font Arial:bold:size=10}${color grey}${top_mem name 3}${alignr}${color orange}${top mem 3} %
+${font Arial:bold:size=10}${color grey}${top_mem name 4}${alignr}${color orange}${top mem 4} %
+${font Arial:bold:size=10}${color grey}${top_mem name 5}${alignr}${color orange}${top mem 5} %
+
+${font Arial:bold:size=10}${color red}MEMORY ${color red}${hr 2}
+${font Arial:bold:size=10}${color grey}MEM $alignc $mem / $memmax $alignr${color orange}$memperc%
+${color orange}$membar
+
+${color grey}${top_mem name 1}$alignr${color orange}${top_mem mem 1}%
+${color grey}${top_mem name 2}$alignr${color orange}${top_mem mem 2}%
+${color grey}${top_mem name 3}$alignr${color orange}${top_mem mem 3}%
+${color grey}${top_mem name 4}$alignr${color orange}${top_mem mem 4}%
+${color grey}${top_mem name 5}$alignr${color orange}${top_mem mem 5}%
+
+${font Arial:bold:size=10}${color red}HDD ${color red}${hr 2}
+${font Arial:bold:size=10}${color grey}/root $alignc ${fs_used /} / ${fs_size /} $alignr ${color orange}${fs_free_perc /}%
+${color orange}${fs_bar /}
+
+#
+# Wired Ethernet Controler - This is a comment do not delete the # at the begining of this line. 
+# 1) Delete the # on ever line  to make the command active.
+# 2) Type ifconfig in a terminal to find the name of your Wired Ethernet Controller
+# 3) Replace enp5s0 with the name of your Wired Ethernet Controller
+#
+${font Arial:bold:size=10}${color red}NETWORK ${color red}${hr 2}
+${font Arial:bold:size=10}${color grey}IP of ETH enp5s0 $alignr${color orange}${addr enp3s0}
+
+${color grey}Download Speed $alignr${color orange}${downspeed enp3s0} kb/s
+${color grey}Upload Speed $alignr${color orange}${upspeed enp3s0} kb/s
+
+${color grey}Downloaded: $alignr${color orange}${totaldown enp3s0}
+${color grey}Uploaded: $alignr${color orange}${totalup enp3s0}
+${color grey}${downspeedgraph enp5s0 20,70 ff0000 ff8800}   ${color grey}${upspeedgraph enp5s0 20,70 ff8800 ff0000}
+${color red}${hr 2}
+# Remove the line above if you don't want to see a line between NETWORK and WIRELESS NETWORK
+#
+# Wireless Ethernet Controler - This is a comment do not delete the # at the begining of this line. 
+# 1) Delete the # on ever line  to make the command active.
+# 2) Type iwconfig in a terminal to find the name of your Wireless Ethernet Controller
+# 3) Replace enp5s0 with the name of your Wireless Ethernet Controller
+#
+${font Arial:bold:size=10}${color red}WIRELESS NETWORK ${color red}${hr 2}
+${font Arial:bold:size=10}${color grey}IP on wlan1 $alignr${color orange} ${addr wlp2s0}
+
+${color grey}Down $alignr${color orange} ${downspeed wlp2s0} kb/s
+${color grey}Up $alignr${color orange} ${upspeed wlp2s0} kb/s
+
+${color grey}Downloaded: $alignr${color orange} ${totaldown wlp2s0}
+${color grey}Uploaded: $alignr${color orange} ${totalup wlp2s0} 
+${color orange}${downspeedgraph wlp2s0 50,100 ff0000 ff8800}         ${color orange}${upspeedgraph wlp2s0 50,100 0000ff ff8800}
+${color red}${hr 2}
+]];
+
+
+
